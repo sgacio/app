@@ -4,7 +4,7 @@ import { SourceListMap } from 'source-list-map'
 @Component({
   selector: 'app-deck',
   template: `
-    <p>
+    <p ngFor="">
       {{ deck }}
     </p>
   `,

@@ -1,0 +1,105 @@
+<main>
+  <div>
+    <h2>Player Hand</h2>
+    <h4>
+      Player Hand Value:
+      <span>{{ pOneHandValue }}</span>
+    </h4>
+    <ul>
+      <li *ngFor="let card of playerHand">
+        <p>
+          Rank:
+          <span>
+            {{ card.rank }}
+          </span>
+        </p>
+        <p>
+          Suit:
+          <span>
+            {{ card.suit }}
+          </span>
+        </p>
+        <p>
+          Value:
+          <span>
+            {{ card.value }}
+          </span>
+        </p>
+      </li>
+    </ul>
+  </div>
+  <div>
+    <button (click)="hitMe()">Hit Me!</button>
+    <button (click)="stay()">Stay!</button>
+  </div>
+  <div class="{{ evaluatedOne ? '' : 'hide-one' }}">
+    <h1>Player Wins!</h1>
+    <button (click)="refresh()">Refresh</button>
+  </div>
+  <div class="{{ evaluatedTwo ? '' : 'hide-one' }}">
+    <h1>Bust, Dealer Wins!</h1>
+    <button (click)="refresh()">Refresh</button>
+  </div>
+  <div class="{{ evaluatedThree ? '' : 'hide-one' }}">
+    <h1>Push!</h1>
+    <button (click)="refresh()">Refresh</button>
+  </div>
+  <div
+    class="{{
+      evaluatedOne || evaluatedTwo || evaluatedThree ? 'hide-one' : ''
+    }}"
+  >
+    <h2>Dealer Hand</h2>
+    <ul>
+      <li>
+        <p>
+          Rank:
+          <span>
+            {{ dealerHand[0].rank }}
+          </span>
+        </p>
+        <p>
+          Suit:
+          <span>
+            {{ dealerHand[0].suit }}
+          </span>
+        </p>
+        <p>
+          Value:
+          <span>
+            {{ dealerHand[0].value }}
+          </span>
+        </p>
+      </li>
+    </ul>
+  </div>
+  <div
+    class="{{
+      evaluatedOne || evaluatedTwo || evaluatedThree ? '' : 'hide-one'
+    }}"
+  >
+    <h2>Dealer Hand</h2>
+    <ul>
+      <li *ngFor="let card of dealerHand">
+        <p>
+          Rank:
+          <span>
+            {{ card.rank }}
+          </span>
+        </p>
+        <p>
+          Suit:
+          <span>
+            {{ card.suit }}
+          </span>
+        </p>
+        <p>
+          Value:
+          <span>
+            {{ card.value }}
+          </span>
+        </p>
+      </li>
+    </ul>
+  </div>
+</main>
